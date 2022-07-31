@@ -28,7 +28,6 @@ object RetrofitModule {
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
         return OkHttpClient.Builder()
-                //.cache(Cache(File(NerdApplication.getContext()!!.cacheDir, "someIdentifier"), 50000))
                 .addInterceptor(httpLoggingInterceptor)
                 .readTimeout(60, TimeUnit.SECONDS)
                 .connectTimeout(60, TimeUnit.SECONDS)
@@ -38,10 +37,9 @@ object RetrofitModule {
 
     @Singleton
     @Provides
-    fun providesRetrofit(okHttpClient: OkHttpClient, moshi: Moshi): Retrofit =
+    fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit =
         Retrofit.Builder()
                 .baseUrl(MedicusApi.BASE_URL)
-                //.addConverterFactory(MoshiConverterFactory.create(moshi))
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build()

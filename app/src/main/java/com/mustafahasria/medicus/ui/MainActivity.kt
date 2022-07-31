@@ -1,17 +1,9 @@
 package com.mustafahasria.medicus.ui
 
-import android.net.ConnectivityManager
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.view.isVisible
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment.findNavController
-import com.mustafahasria.medicus.R
 import com.mustafahasria.medicus.databinding.ActivityMainBinding
-import com.mustafahasria.medicus.util.ConnectionStateViewModel
-import com.mustafahasria.medicus.util.NetworkConnection
 import dagger.hilt.android.AndroidEntryPoint
 
 
