@@ -1,0 +1,71 @@
+buildscript {
+
+    ext {
+        gradleVersion = '7.0.0'
+        kotlinVersion = '1.5.21'
+        navigationVersion = '2.3.1'
+        hiltVersion = '2.36'
+
+        multidexVersion = "2.0.1"
+
+        // Sdk and tools
+        minSdkVersion = 21
+        targetSdkVersion = 30
+        compileSdkVersion = 31
+
+        // App dependencies
+        appCompatVersion = '1.3.1'
+        constraintLayoutVersion = '2.1.0'
+        recyclerVersion = '1.2.1'
+        coroutinesVersion = '1.3.9'
+        dataStoreVersion = '1.0.0'
+        espressoVersion = '3.4.0'
+        fragmentVersion = '1.3.0-beta-01'
+        glideVersion = '4.12.0'
+        hiltAndroidXVersion = '1.0.0-alpha03'
+        junitVersion = '4.13.2'
+        ktxVersion = '1.6.0'
+        materialVersion = '1.3.0-beta01'
+        navigationVersion = '2.3.5'
+        lifecycleVersion = '2.2.0'
+        pagingVersion = '3.0.1'
+        retrofitVersion = '2.9.0'
+        moshiVerion = '1.12.0'
+        roomVersion = '2.3.0'
+        testExtJunitVersion = '1.1.3'
+
+        fcm = '4.3.5'
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+        maven { url "https://www.jitpack.io" }
+        configurations.all {
+            resolutionStrategy {
+                force 'org.xerial:sqlite-jdbc:3.34.0'
+            }
+        }
+    }
+
+
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:$gradleVersion"
+        //don't edit this version bro please :)
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
+
+        classpath "com.google.gms:google-services:$fcm"
+        //classpath 'com.android.tools:r8:1.6.84'
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
